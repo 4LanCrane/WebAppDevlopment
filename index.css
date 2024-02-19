@@ -1,24 +1,54 @@
 body {
     font-family: sans-serif;
+    background-color: #ffcd44;
 }
 
 
 #search{
     width: 100%;
     margin-bottom: 1em;
+    background-color: white;
 }
 
 #search input{
     width: 100%;
-    padding: 0.5em;
     font-size: 1em;
     border: 1px solid #000000;
+    margin-bottom: 1em;
 }
 
+#results {
+    display: none;
+}
 
 .item{
     display: block;
     margin-bottom: 1em;
     width: 100%;
     border: 1px solid #000000;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1em;
+    background-color: white;
+    border-radius: 3em;
+}
+
+.item p{
+    margin: 1em;
+    padding: 0;
+}
+
+#loading{
+    display: none;
+    text-align: center;
+    margin-top: 1em;
+}
+
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block !important;
 }
