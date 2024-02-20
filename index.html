@@ -16,7 +16,23 @@
             <fieldset>
                 <legend>Enter Search Term</legend>
                 <input id="searchBox" type="text" />
-                <input type="submit" value="Search"/>
+                
+               
+                <b> Amount Of Results</b>  
+                <select id = "resultAmountDropdown">  
+                <option>15</option>  
+                <option>30</option>  
+                <option>45</option>  
+                <option>100</option>  
+                </select> 
+                <div id="filters">
+                <b>Results Must Have:</b>
+                <label for="imageCheckbox">Image</label>
+                <input id="imageCheckbox" type="checkbox"/> 
+                <label for="descriptionCheckbox">Description</label>
+                <input id="descriptionCheckbox" type="checkbox"/> 
+                </div>
+                <input id="searchboxButton" type="submit" value="Search"/>
 
             </fieldset>
         </form>
@@ -42,4 +58,4 @@
 
 </body>
 
-</htm
+</html>

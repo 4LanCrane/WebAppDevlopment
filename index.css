@@ -4,18 +4,31 @@ body {
 }
 
 
+#searchboxButton{
+background-color: blue;    
+border-radius: 2em;
+width: 100%;
+height: 3em;
+color: white;
+}
+
+
 #search{
     width: 100%;
     margin-bottom: 1em;
     background-color: white;
 }
 
-#search input{
+#searchBox{
     width: 100%;
+    height: 2em;
     font-size: 1em;
     border: 1px solid #000000;
     margin-bottom: 1em;
+    border-radius: 3em;
 }
+
+
 
 #results {
     display: none;
@@ -52,3 +65,14 @@ body {
 .show{
     display: block !important;
 }
+
+#resultAmountDropdown{
+    width: 4em;
+    height: 2em;
+    font-size: 1em;
+    border: 1px solid #000000;
+    margin-bottom: 1em;
+    border-radius: 3em;
+}
+
+
