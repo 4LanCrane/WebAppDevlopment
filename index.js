@@ -13,11 +13,9 @@ async function sendMessage(evt) {
   var userInput = document.querySelector("#searchBox").value;
   let fieldValid = true;
   let loadImages = true;
-  let pageSize= document.querySelector("#resultAmountDropdown").value;
-  
+  let pageSize = document.querySelector("#resultAmountDropdown").value;
+
   console.log(pageSize);
-
-
 
   if (userInput === "" || userInput.length < 0) {
     alert("Please enter a search term");
@@ -39,10 +37,9 @@ async function sendMessage(evt) {
       "https://api.vam.ac.uk/v2/objects/search?q=" +
         userInput +
         "&data_profile=full" +
-        "&page_size="+
-        pageSize
-        +
-        "&images="+
+        "&page_size=" +
+        pageSize +
+        "&images=" +
         loadImages
     ).catch(function (error) {
       console.log(
@@ -118,38 +115,16 @@ async function sendMessage(evt) {
       itemContainer.appendChild(descriptionTitle);
 
       var description = document.createElement("p");
+
+      // set description to the summary description and remove any html tags
+      description.textContent = result.summaryDescription.replaceAll(
+        /<[^>]*>?/gm,
+        ""
+      );
       if (result.summaryDescription === "") {
         description.textContent = "No description available";
-      } else {
-        //check if the description text content contains <br> and </br> and replace it with a space
-        if (result.summaryDescription.includes("<br>")) {
-          result.summaryDescription = result.summaryDescription.replace(
-            /<br>/g,
-            " "
-          );
-        }
-
-        //check if the description text content contains <b> and </b> and replace it with a space
-        if (result.summaryDescription.includes("<b>")) {
-          result.summaryDescription = result.summaryDescription.replace(
-            /<b>/g,
-            "("
-          );
-        }
-        
-        //check if the description text content contains </b> and </b> and replace it with a space
-        if (result.summaryDescription.includes("</b>")) {
-          result.summaryDescription = result.summaryDescription.replace(
-            /<\/b>/g,
-            ")"
-          );
-        }
-
-        description.textContent = result.summaryDescription;
       }
-
       itemContainer.appendChild(description);
-
       // Append the item container to the results container
       resultsContainer.appendChild(itemContainer);
     });
