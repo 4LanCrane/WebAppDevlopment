@@ -98,18 +98,7 @@ async function sendMessage(evt) {
         date.textContent = "Date:" + result._primaryDate;
       }
       itemContainer.appendChild(date);
-
-      var image = result._images._primary_thumbnail;
-      if (image === undefined) {
-        var notAvailable = document.createElement("p");
-        notAvailable.textContent = "No image available";
-        itemContainer.appendChild(notAvailable);
-      } else {
-        var image = document.createElement("img");
-        image.src = result._images._primary_thumbnail;
-        itemContainer.appendChild(image);
-      }
-
+     
       var descriptionTitle = document.createElement("h3");
       descriptionTitle.textContent = "Description";
       itemContainer.appendChild(descriptionTitle);
@@ -125,6 +114,28 @@ async function sendMessage(evt) {
         description.textContent = "No description available";
       }
       itemContainer.appendChild(description);
+
+
+      var image = result._images._primary_thumbnail;
+      if (image === undefined) {
+        var noImage = document.createElement("p");
+        noImage.textContent = "No image available";
+        itemContainer.appendChild(noImage);
+      }else{
+       //now create a new image element and check the src is loading  
+      var img = new Image();
+      img.src = image;
+      img.onerror = function(){
+        itemContainer.removeChild(img);
+        var noImage = document.createElement("p");
+        noImage.textContent = "(Image failed to load)";
+        itemContainer.appendChild(noImage);
+      };
+
+      img.onload = function(){
+        itemContainer.appendChild(img);
+      };}
+
       // Append the item container to the results container
       resultsContainer.appendChild(itemContainer);
     });
