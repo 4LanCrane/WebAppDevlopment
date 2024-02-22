@@ -124,7 +124,7 @@ async function sendMessage(evt) {
         noImage.textContent = "No image available";
         itemContainer.appendChild(noImage);
       }else{
-       //now create a new image element and check the src is loading  
+       //creates a new image element and check the src is loading or
       var img = new Image();
       img.src = image;
       img.onerror = function(){
@@ -137,6 +137,23 @@ async function sendMessage(evt) {
       img.onload = function(){
         itemContainer.appendChild(img);
       };}
+
+  
+      var fullSizedImageUrl = `${result._images._iiif_image_base_url}/full/full/0/default.jpg`;
+
+      // Creating a new Image element for full-size image
+      var fullSizeImage = new Image();
+      fullSizeImage.src = fullSizedImageUrl;
+      fullSizeImage.classList.add("fullsizeImage");
+  
+      // Append the full-size image to the image container
+      itemContainer.appendChild(fullSizeImage);
+      fullSizeImage.classList.add("hide");
+
+      itemContainer.addEventListener("click", function () {
+        fullSizeImage.classList.toggle("hide");
+        img.classList.toggle("hide");
+      });
 
       // Append the item container to the results container
       resultsContainer.appendChild(itemContainer);

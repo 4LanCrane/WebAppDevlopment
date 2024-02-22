@@ -75,4 +75,11 @@ color: white;
     border-radius: 3em;
 }
 
+.fullsizeImage{
+    max-width:40% ;
+    max-height: 40%;
+    min-width: 200px;
+    min-height: 200px;
+}
+
 
