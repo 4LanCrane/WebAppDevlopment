@@ -4,7 +4,6 @@ window.addEventListener("load", function () {
   form.addEventListener("submit", sendMessage);
 
   document.querySelector("#imageCheckbox").checked = true;
-  document.querySelector("#descriptionCheckbox").checked = true;
 });
 
 async function sendMessage(evt) {
@@ -14,6 +13,7 @@ async function sendMessage(evt) {
   let fieldValid = true;
   let loadImages = true;
   let pageSize = document.querySelector("#resultAmountDropdown").value;
+  let loading = document.querySelector("#loading");
 
   console.log(pageSize);
 
@@ -50,12 +50,14 @@ async function sendMessage(evt) {
       );
     });
 
+
+    var resultsContainer = document.querySelector("#results");
+
     //if the responce is okay do the following
     if (response.ok) {
       //show the loading spinner
       loading.classList.add("show");
       //hide the results container
-      var resultsContainer = document.querySelector("#results");
       resultsContainer.classList.remove("show");
     }
 
