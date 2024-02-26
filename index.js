@@ -50,7 +50,7 @@ async function sendMessage(evt) {
         loadImages
         
         )
-      .then(response => response.json()) 
+      .then(response => {return response.json()}) 
       .then(data => {
         console.log(data);
 
