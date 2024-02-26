@@ -82,7 +82,7 @@ color: white;
     min-height: 200px;
 }
 
-.searchboxHint{
+.searchError{
     font-size: 1em;
     color: #ff0000;
     margin-bottom: 1em;
