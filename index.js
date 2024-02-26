@@ -4,6 +4,8 @@ window.addEventListener("load", function () {
   form.addEventListener("submit", sendMessage);
 
   document.querySelector("#imageCheckbox").checked = true;
+  var searchboxHint = document.querySelector(".searchboxHint");
+  searchboxHint.classList.add("hide");
 });
 
 async function sendMessage(evt) {
@@ -14,11 +16,11 @@ async function sendMessage(evt) {
   let loadImages = true;
   let pageSize = document.querySelector("#resultAmountDropdown").value;
   let loading = document.querySelector("#loading");
+  let searchboxHint = document.querySelector(".searchboxHint");
 
   console.log(pageSize);
 
   if (userInput === "" || userInput.length < 0) {
-    alert("Please enter a search term");
     fieldValid = false;
   } else {
     fieldValid = true;
@@ -30,8 +32,15 @@ async function sendMessage(evt) {
     loadImages = false;
   }
 
+  if(!fieldValid){
+    searchboxHint.textContent = "Please enter a search term";
+   searchboxHint.classList.remove("hide");
+  }
+
+
   if (fieldValid) {
     console.log(userInput);
+    searchboxHint.classList.add("hide");
     // send a request to the server to get the data using the fetch API and the user input and store the response in a variable
     const response = await fetch(
       "https://api.vam.ac.uk/v2/objects/search?q=" +
@@ -46,8 +55,7 @@ async function sendMessage(evt) {
         "There has been a problem with your fetch operation: " + error.message
       );
       alert(
-        "There has been a problem with your fetch operation: " + error.message
-      );
+        "There has been a problem with your fetch operation: " + error.message);
     });
 
 
@@ -72,6 +80,12 @@ async function sendMessage(evt) {
 
     // log the results to the console
     console.log(results);
+
+    // check if the results are empty
+    if (results.length === 0) {
+      searchboxHint.textContent = "No results found";
+      searchboxHint.classList.remove("hide");
+    }
 
     // Clear previous results
     while (resultsContainer.firstChild) {
