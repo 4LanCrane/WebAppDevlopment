@@ -67,6 +67,16 @@ color: white;
    margin: 1em;
 }
 
+.item img{
+    max-height:7em;
+}
+
+.fullsizeImage{
+  
+    min-width: 200px;
+    min-height: 250px;
+}
+
 #loading{
     display: none;
     text-align: center;
@@ -91,12 +101,6 @@ color: white;
     border-radius: 3em;
 }
 
-.fullsizeImage{
-    max-width:40% ;
-    max-height: 40%;
-    min-width: 200px;
-    min-height: 200px;
-}
 
 .searchError{
     font-size: 1em;

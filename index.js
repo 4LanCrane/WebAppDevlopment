@@ -111,7 +111,8 @@ window.addEventListener("load", function () {
             }
             itemContainer.appendChild(description);
   
-            var image = result._images._primary_thumbnail;
+            var image =  `${result._images._iiif_image_base_url}/full/full/0/default.jpg`;
+            
             if (image === undefined) {
               var noImage = document.createElement("p");
               noImage.textContent = "No image available";
@@ -132,22 +133,10 @@ window.addEventListener("load", function () {
                 itemContainer.appendChild(img);
               };
             }
-  
-            var fullSizedImageUrl = `${result._images._iiif_image_base_url}/full/full/0/default.jpg`;
-  
-            // Creating a new Image element for full-size image
-            var fullSizeImage = new Image();
-            fullSizeImage.src = fullSizedImageUrl;
-            fullSizeImage.alt = "Full size image of " + result._primaryTitle;
-            fullSizeImage.classList.add("fullsizeImage");
-  
-            // Append the full-size image to the image container
-            itemContainer.appendChild(fullSizeImage);
-            fullSizeImage.classList.add("hide");
+
   
             itemContainer.addEventListener("click", function () {
-              fullSizeImage.classList.toggle("hide");
-              img.classList.toggle("hide");
+             img.classList.toggle('fullsizeImage')
             });
   
             // Append the item container to the results container
