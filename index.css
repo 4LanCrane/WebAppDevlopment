@@ -4,6 +4,13 @@ body {
 }
 
 
+@media screen and (min-width: 600px) {
+ .item{
+    max-width: 60%;
+    margin: auto;
+ }
+}
+
 #searchboxButton{
 background-color: blue;    
 border-radius: 2em;
@@ -49,6 +56,15 @@ color: white;
 .item p{
     margin: 1em;
     padding: 0;
+}
+
+.item h2{
+    white-space: nowrap; 
+    width:90%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+   padding: 1cap 0;
+   margin: 1em;
 }
 
 #loading{
