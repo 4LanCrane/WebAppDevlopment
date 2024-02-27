@@ -12,10 +12,10 @@ async function sendMessage(evt) {
   evt.preventDefault();
 
   var userInput = document.querySelector("#searchBox").value;
-  let fieldValid = true;
-  let loadImages = true;
-  let pageSize = document.querySelector("#resultAmountDropdown").value;
-  let loading = document.querySelector("#loading");
+  var fieldValid = true;
+  var loadImages = true;
+  var pageSize = document.querySelector("#resultAmountDropdown").value;
+  var loading = document.querySelector("#loading");
   var searchError = document.querySelector(".searchError");
 
   console.log(pageSize);
@@ -40,7 +40,7 @@ async function sendMessage(evt) {
     // send a request to the server to get the data using the fetch API and the user input and store the response in a variable
     var resultsContainer = document.querySelector("#results");
 
-    await fetch(
+    fetch(
       "https://api.vam.ac.uk/v2/objects/search?q=" +
         userInput +
         "&data_profile=full" +
@@ -48,21 +48,19 @@ async function sendMessage(evt) {
         pageSize +
         "&images=" +
         loadImages
-        
-        )
-      .then(response => {return response.json()}) 
-      .then(data => {
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
         console.log(data);
 
         searchError.classList.add("hide");
 
-       var results = data.records;
+        var results = data.records;
 
         // log the data to the console
         console.log(data);
-
-       
-       
 
         // log the results to the console
         console.log(results);
@@ -156,9 +154,9 @@ async function sendMessage(evt) {
         resultsContainer.classList.add("show");
       })
       .catch(function (error) {
-       searchError.textContent = "An error occurred" + error;
+        searchError.textContent = "An error occurred" + error;
         searchError.classList.remove("hide");
-          console.log(error);
+        console.log(error);
       });
   }
 }
