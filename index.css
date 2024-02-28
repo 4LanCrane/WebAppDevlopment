@@ -3,13 +3,60 @@ body {
     background-color: #ffcd44;
 }
 
-
-@media screen and (min-width: 600px) {
+/*when viewed on a desktop*/
+@media screen and (min-width:63em) {
  .item{
-    max-width: 60%;
+    max-width: 45%;
     margin: auto;
  }
+
+ #results{
+    display: flex;
+    flex-wrap: wrap;
+  
+ }
+
+
+
+     
+ .item{
+    display: block;
+    margin-bottom: 1em;
+    min-height:40em;
+    width: 40em;
+    border: 1px solid #000000;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1em;
+    background-color: white;
+    border-radius: 3em;
 }
+
+
+}
+
+/*when viewed on a mobile*/
+@media screen and (max-width:62.99em) {
+    #results {
+        display: block;
+     }
+
+     
+.item{
+    display: block;
+    margin-bottom: 1em;
+    width: 100%;
+    border: 1px solid #000000;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1em;
+    background-color: white;
+    border-radius: 3em;
+}
+}
+
+
+
 
 #searchboxButton{
 background-color: blue;    
@@ -35,23 +82,6 @@ color: white;
     border-radius: 3em;
 }
 
-
-
-#results {
-    display: none;
-}
-
-.item{
-    display: block;
-    margin-bottom: 1em;
-    width: 100%;
-    border: 1px solid #000000;
-    text-align: center;
-    margin: auto;
-    margin-bottom: 1em;
-    background-color: white;
-    border-radius: 3em;
-}
 
 .item p{
     margin: 1em;
@@ -85,10 +115,10 @@ color: white;
 
 
 .hide{
-    display: none;
+    display: none !important;
 }
 
-.show{
+.showLoad{
     display: block !important;
 }
 
