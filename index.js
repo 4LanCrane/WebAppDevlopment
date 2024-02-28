@@ -112,31 +112,23 @@ window.addEventListener("load", function () {
             itemContainer.appendChild(description);
   
             var image =  `${result._images._iiif_image_base_url}/full/full/0/default.jpg`;
-            
-            if (image === undefined) {
-              var noImage = document.createElement("p");
-              noImage.textContent = "No image available";
-              itemContainer.appendChild(noImage);
-            } else {
               //creates a new image element and check the src is loading or
               var img = new Image();
               img.src = image;
               img.alt = "Image of " + result._primaryTitle;
               img.onerror = function () {
-                itemContainer.removeChild(img);
-                var noImage = document.createElement("p");
-                noImage.textContent = "(Image failed to load)";
-                itemContainer.appendChild(noImage);
+                img.src = "NOIMAGE.png";
+                itemContainer.appendChild(img);
               };
   
               img.onload = function () {
                 itemContainer.appendChild(img);
               };
-            }
+            
 
   
             itemContainer.addEventListener("click", function () {
-             img.classList.toggle('fullsizeImage')
+             img.classList.toggle('fullsizeImage');
             });
   
             // Append the item container to the results container
