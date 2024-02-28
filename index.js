@@ -76,7 +76,7 @@ async function sendMessage(evt) {
         results.forEach((result) => {
           // Create a container for each item
           var itemContainer = document.createElement("div");
-          itemContainer.classList.add("item");
+          itemContainer.classList.add("item");;
 
           // Create a heading element
           var heading = document.createElement("h2");
@@ -105,7 +105,7 @@ async function sendMessage(evt) {
             /<[^>]*>?/gm,
             ""
           );
-          var shortDescription = fullDescription.substring(0, 100) + "...";
+          var shortDescription = fullDescription.substring(0, 300) + "...";
           description.textContent = shortDescription;
 
           if (result.summaryDescription === "") {
