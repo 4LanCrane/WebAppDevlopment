@@ -61,6 +61,15 @@ async function sendMessage(evt) {
 
         var results = data.records;
 
+
+        //check if the results array is empty
+        if(results.length === 0){
+          searchError.textContent = "No results found";
+          searchError.classList.remove("hide");
+          loading.classList.remove("showLoad");
+          return;
+        }
+
         // log the data to the console
         console.log(data);
 
@@ -112,26 +121,7 @@ async function sendMessage(evt) {
             description.textContent = "No description available";
           }
 
-          // Flag to track the state of the description
-          var isFullDescription = false;
 
-          itemContainer.addEventListener("click", function () {
-            //check the description is not "No description available"
-            if (result.summaryDescription === "") {
-              return;
-            }
-
-            if (isFullDescription) {
-              // If currently showing full description, switch to short description
-              description.textContent = shortDescription;
-            } else {
-              // If currently showing short description, switch to full description
-              description.textContent = fullDescription;
-            }
-
-            // Toggle the state
-            isFullDescription = !isFullDescription;
-          });
 
           itemContainer.appendChild(description);
 
@@ -149,8 +139,56 @@ async function sendMessage(evt) {
             itemContainer.appendChild(img);
           };
 
+        
+
+          //when the item container is clicked, open myModal
           itemContainer.addEventListener("click", function () {
-            img.classList.toggle("fullsizeImage");
+            var modal = document.getElementById("myModal");
+            modal.classList.add("block");
+            var modelContent = document.querySelector(".modal-content");
+
+            //create a  h2 element for the title
+            var title = document.createElement("h2");
+            title.textContent = result._primaryTitle; 
+            modelContent.appendChild(title);
+
+
+            //create a p element for the date
+            var date = document.createElement("p");
+            date.textContent = "Date: " + result._primaryDate;
+            modelContent.appendChild(date);
+
+
+            var description = document.createElement("p");
+            description.textContent = fullDescription;
+            modelContent.appendChild(description);
+
+          var img = document.createElement("img");
+          img.classList.add("fullsizeImage");
+          img.src = `${result._images._iiif_image_base_url}/full/full/0/default.jpg`;
+          img.alt = "Image of " + result._primaryTitle;
+          img.onerror = function () {
+            img.src = "NOIMAGE.png";
+            modelContent.appendChild(img);
+          }   
+          img.onload = function () {  
+            modelContent.appendChild(img);
+          }
+
+
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+              modal.classList.remove("block");
+              modelContent.removeChild(description);
+              modelContent.removeChild(date);
+              modelContent.removeChild(title);
+              modelContent.removeChild(img);
+            };
+
+          
           });
 
           // Append the item container to the results container

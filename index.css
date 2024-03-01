@@ -3,6 +3,54 @@ body {
     background-color: #ffcd44;
 }
 
+#myModal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: black;
+    background-color: rgba(0,0,0,0.4); 
+  }
+
+
+.block{
+    display: block !important;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #ff9900;
+    height: 90%;
+    width: 90%; 
+    text-align: center;
+    overflow: hidden;
+    overflow: auto;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+
 /*when viewed on a desktop*/
 @media screen and (min-width:63em) {
 
@@ -101,10 +149,8 @@ color: white;
 
 
 .fullsizeImage{
-    max-width: 90%;
-    min-width: 200px;
-    min-height: 250px;
-    margin-bottom: 2em;
+   max-width: 50%;
+    max-height: 50%;
 }
 
 #loading{
