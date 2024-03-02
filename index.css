@@ -141,6 +141,10 @@ body {
         width: 4em;
         height: 2.25em;
     }
+
+    #searchBox{
+        width: 98% !important;
+    }
 }
 
 /********************** SEARCHBOX SECTION *********************/
