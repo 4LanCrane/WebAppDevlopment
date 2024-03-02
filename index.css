@@ -92,6 +92,11 @@ body {
     max-height: 50%;
 }
 
+.clickForMore{
+    color: blue;
+    text-decoration: underline;
+}
+
 /*when viewed on a desktop*/
 @media screen and (min-width: 63em) {
     #results {
