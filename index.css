@@ -50,10 +50,13 @@ body {
 
 /* The Close Button */
 .close {
-    color: #ff0000;
+    display: block;
+    color: #ffffff;
     float: right;
-    font-size: 28px;
+    font-size: 40px;
     font-weight: bold;
+    background-color: #ff0000;
+    border-radius: 1em;
 }
 
 .close:hover,
@@ -80,7 +83,7 @@ body {
 
 .item img {
     max-height: 7em;
-    max-width: 15em;
+    max-width: 17em;
 }
 
 .itemImage {
@@ -92,63 +95,74 @@ body {
     max-height: 50%;
 }
 
-.clickForMore{
+.clickForMore {
     color: blue;
     text-decoration: underline;
 }
 
 /*when viewed on a desktop*/
-@media screen and (min-width: 63em) {
-    #results {
-        display: flex;
-        flex-wrap: wrap;
-    }
+#results {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.item {
+    display: block;
+    min-height: 30em;
+    width: 20%;
+    border: 1px solid #000000;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1em;
+    background-color: white;
+    border-radius: 3em;
+}
+
+/*when viewed on a tablet */
+
+@media screen and (max-width: 1300px) {
     .item {
-        max-width: 45%;
-        display: block;
-        margin-bottom: 1em;
-        min-height: 30em;
-        width: 40em;
-        border: 1px solid #000000;
-        text-align: center;
-        margin: auto;
-        margin-bottom: 1em;
-        background-color: white;
-        border-radius: 3em;
+        width: 30%;
     }
 }
 
-/*when viewed on a mobile*/
-@media screen and (max-width: 62.99em) {
-    #results {
-        display: block;
-    }
+/*when viewed on a small tablet */
 
+@media screen and (max-width: 870px) {
     .item {
-        display: block;
-        margin-bottom: 1em;
-        width: 100%;
-        border: 1px solid #000000;
-        text-align: center;
-        margin: auto;
-        margin-bottom: 1em;
-        background-color: white;
-        border-radius: 3em;
+        width: 49%;
     }
 
-    #imageCheckbox{
+    #imageCheckbox {
         height: 2.25em;
-        width: 2.25em
+        width: 2.25em;
     }
 
     #AmountDropdown {
         width: 4em;
         height: 2.25em;
     }
+}
 
-    #searchBox{
-        width: 98% !important;
+/*when viewed on a mobile*/
+@media screen and (max-width: 740px) {
+    #results {
+        display: block;
+    }
+
+    .item {
+        width: 100%;
+        display: block;
+    }
+
+    #imageCheckbox {
+        height: 2.25em;
+        width: 2.25em;
+    }
+
+    #AmountDropdown {
+        width: 4em;
+        height: 2.25em;
     }
 }
 
@@ -159,12 +173,18 @@ body {
     width: 100%;
     height: 3em;
     color: white;
+    border: black 3px solid;
+}
+
+fieldset {
+    border: none;
 }
 
 #search {
     width: 100%;
-    margin-bottom: 1em;
     background-color: white;
+    border-radius: 1em;
+    margin-bottom: 1em;
     display: inline-block;
 }
 
@@ -172,7 +192,7 @@ body {
     width: 100%;
     height: 2em;
     font-size: 1em;
-    border: 1px solid #000000;
+    border: 2px solid #000000;
     margin-bottom: 1em;
     border-radius: 3em;
 }
@@ -192,4 +212,3 @@ body {
     color: #ff0000;
     margin-bottom: 1em;
 }
-

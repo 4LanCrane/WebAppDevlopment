@@ -111,7 +111,7 @@ async function sendMessage(evt) {
                     );
                     // If the description is longer than 300 characters, shorten it and add an ellipsis
                     var shortDescription =
-                        fullDescription.substring(0, 300) + "...";
+                        fullDescription.substring(0, 100) + "...";
                     description.textContent = shortDescription;
 
                     // If the description is empty, display a message
