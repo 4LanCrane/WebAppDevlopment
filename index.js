@@ -153,10 +153,17 @@ async function sendMessage(evt) {
 
                         var date = document.createElement("p");
                         date.textContent = "Date: " + result._primaryDate;
+                        if (result._primaryDate === "") {
+                            date.textContent = "No date available";
+                        }
                         modelContent.appendChild(date);
 
                         var description = document.createElement("p");
                         description.textContent = fullDescription;
+                        if (result.summaryDescription === "") {
+                            description.textContent =
+                                "No description available";
+                        }
                         modelContent.appendChild(description);
 
                         var img = document.createElement("img");
