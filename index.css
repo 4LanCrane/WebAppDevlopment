@@ -1,7 +1,19 @@
 body {
     font-family: sans-serif;
     background-color: #ffcd44;
+    margin: 0;
 }
+
+header {
+    background-color: rgb(108, 108, 108);
+    padding: 20px;
+    color: rgb(255, 255, 255); /* Text color */
+    text-align: center; /* Center align the text */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+}
+
+
 
 #loading {
     display: none;
@@ -17,7 +29,21 @@ body {
     display: block !important;
 }
 
-/*************** POPUP WINDOW SECTION ********************/
+/************************* POPUP WINDOW SECTION **************************/
+
+/* The popup animation which pops up the window and increases scale*/
+
+@keyframes showPopup {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+} 
+
+
 #popup {
     display: none;
     position: fixed;
@@ -35,7 +61,7 @@ body {
     display: block !important;
 }
 
-.modalContent {
+#modalContent {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -45,7 +71,8 @@ body {
     text-align: center;
     overflow: hidden;
     overflow: auto;
-    border-radius: 3em;
+    border-radius: 3em; 
+    animation: showPopup 0.7s;
 }
 
 /* The Close Button */
@@ -62,11 +89,12 @@ body {
 .close:hover,
 .close:focus {
     color: black;
+    background-color: #f96767;
     text-decoration: none;
     cursor: pointer;
 }
 
-/******************* SEARCH RESULTS SECTION *******************/
+/*********************** SEARCH RESULTS SECTION ************************/
 .item p {
     margin: 1em;
     padding: 0;
@@ -91,8 +119,8 @@ body {
 }
 
 .fullsizeImage {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 70%;
+    max-height: 70%;
 }
 
 .clickForMore {
@@ -100,7 +128,7 @@ body {
     text-decoration: underline;
 }
 
-/*when viewed on a desktop*/
+/*when viewed on a desktop/default*/
 #results {
     display: flex;
     flex-wrap: wrap;
@@ -118,8 +146,12 @@ body {
     border-radius: 3em;
 }
 
-/*when viewed on a tablet */
+/*changes mouse to pointer when over result*/
+.item:hover {
+cursor: pointer;
+}
 
+/*when viewed on a tablet */
 @media screen and (max-width: 1300px) {
     .item {
         width: 30%;
@@ -127,7 +159,6 @@ body {
 }
 
 /*when viewed on a small tablet */
-
 @media screen and (max-width: 870px) {
     .item {
         width: 49%;
@@ -150,8 +181,13 @@ body {
         display: block;
     }
 
+ .fullsizeImage{
+        max-width: 100%;
+        max-height: 100%;
+ }
+
     .item {
-        width: 100%;
+        width: 95%;
         display: block;
     }
 
@@ -166,7 +202,7 @@ body {
     }
 }
 
-/********************** SEARCHBOX SECTION *********************/
+/**************************** SEARCHBOX SECTION ***************************/
 #searchboxButton {
     background-color: blue;
     border-radius: 2em;
@@ -182,8 +218,7 @@ fieldset {
 
 #search {
     width: 100%;
-    background-color: white;
-    border-radius: 1em;
+    background-color: rgb(224, 224, 224);
     margin-bottom: 1em;
     display: inline-block;
 }
@@ -208,7 +243,8 @@ fieldset {
 }
 
 .searchError {
-    font-size: 1em;
+    font-size: 1.2em;
     color: #ff0000;
     margin-bottom: 1em;
+    font-weight: bold;
 }

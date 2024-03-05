@@ -28,7 +28,7 @@ async function sendMessage(evt) {
     }
 
     //check if the user has selected the option to load images
-    if (document.getElementById("imageCheckbox").checked) {
+    if (document.querySelector("#imageCheckbox").checked) {
         loadImages = true;
     } else {
         loadImages = false;
@@ -142,11 +142,9 @@ async function sendMessage(evt) {
 
                     //function to display the full size image and description when the user clicks on the item using a modal/popup
                     itemContainer.addEventListener("click", function () {
-                        var modal = document.getElementById("popup");
+                        var modal = document.querySelector("#popup");
+                        var modelContent = document.querySelector("#modalContent");
                         modal.classList.add("block");
-                        var modelContent =
-                            document.querySelector(".modalContent");
-
                         var title = document.createElement("h2");
                         title.textContent = result._primaryTitle;
                         modelContent.appendChild(title);
@@ -179,7 +177,7 @@ async function sendMessage(evt) {
                         };
 
                         // Gets the x button that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
+                        var span = document.querySelector(".close");
                         //when the user clicks on the x button, the modal is closed
                         span.onclick = function () {
                             modal.classList.remove("block");
