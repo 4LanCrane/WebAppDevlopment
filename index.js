@@ -145,6 +145,8 @@ async function sendMessage(evt) {
                         var modal = document.querySelector("#popup");
                         var modelContent = document.querySelector("#modalContent");
                         modal.classList.add("block");
+                        modelContent.classList.remove("close");
+                        modelContent.classList.add("open");
                         var title = document.createElement("h2");
                         title.textContent = result._primaryTitle;
                         modelContent.appendChild(title);
@@ -177,14 +179,20 @@ async function sendMessage(evt) {
                         };
 
                         // Gets the x button that closes the modal
-                        var span = document.querySelector(".close");
+                        var span = document.querySelector(".closeButton");
                         //when the user clicks on the x button, the modal is closed
                         span.onclick = function () {
-                            modal.classList.remove("block");
-                            modelContent.removeChild(description);
-                            modelContent.removeChild(date);
-                            modelContent.removeChild(title);
-                            modelContent.removeChild(img);
+                            modelContent.classList.remove("open");
+                            modelContent.classList.add("close");
+                            setTimeout(function(){
+                                modal.classList.remove("block");
+                                modelContent.removeChild(description);
+                                modelContent.removeChild(date);
+                                modelContent.removeChild(title);
+                                modelContent.removeChild(img);
+                            }, 500);
+                         
+                           
                         };
                     });
 

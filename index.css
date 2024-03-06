@@ -5,14 +5,13 @@ body {
 }
 
 header {
-    background-color: rgb(108, 108, 108);
+    background-color: #ffcd44;
     padding: 20px;
-    color: rgb(255, 255, 255); /* Text color */
+    color: rgb(0, 0, 0); /* Text color */
     text-align: center; /* Center align the text */
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.1em;
 }
-
 
 
 #loading {
@@ -30,19 +29,6 @@ header {
 }
 
 /************************* POPUP WINDOW SECTION **************************/
-
-/* The popup animation which pops up the window and increases scale*/
-
-@keyframes showPopup {
-    from {
-        transform: scale(0);
-    }
-
-    to {
-        transform: scale(1);
-    }
-} 
-
 
 #popup {
     display: none;
@@ -63,7 +49,10 @@ header {
 
 #modalContent {
     background-color: #fefefe;
-    margin: 15% auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 20px;
     border: 1px solid #ff9900;
     height: 70%;
@@ -71,12 +60,40 @@ header {
     text-align: center;
     overflow: hidden;
     overflow: auto;
-    border-radius: 3em; 
-    animation: showPopup 0.7s;
+    border-radius: 3em;
+}
+
+#modalContent.open {
+    animation: open 0.5s;
+}
+
+#modalContent.close {
+    animation: close 0.5s;
+}
+
+@keyframes open {
+   from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+@keyframes close {
+from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(0);
+    }
 }
 
 /* The Close Button */
-.close {
+.closeButton {
     display: block;
     color: #ffffff;
     float: right;
@@ -86,15 +103,63 @@ header {
     border-radius: 1em;
 }
 
-.close:hover,
-.close:focus {
+.closeButton:hover,
+.closeButton:focus {
     color: black;
     background-color: #f96767;
     text-decoration: none;
     cursor: pointer;
 }
 
-/*********************** SEARCH RESULTS SECTION ************************/
+/**************************** SEARCHBOX SECTION ***************************/
+#searchboxButton {
+    background-color: blue;
+    border-radius: 2em;
+    width: 100%;
+    height: 3em;
+    color: white;
+    border: black 3px solid;
+}
+
+fieldset {
+    border: none;
+}
+
+#search {
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+    margin-bottom: 1em;
+    display: inline-block;
+    border-radius: 1em;
+}
+
+#searchBox {
+    width: 100%;
+    height: 2em;
+    font-size: 1em;
+    border: 2px solid #000000;
+    margin-bottom: 1em;
+    border-radius: 3em;
+}
+
+#resultAmountDropdown {
+    width: 4em;
+    height: 2.25em;
+    font-size: 1em;
+    border: 1px solid #000000;
+    margin-bottom: 1em;
+    border-radius: 3em;
+    text-align: center;
+}
+
+.searchError {
+    font-size: 1.2em;
+    color: #ff0000;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+*********************** SEARCH RESULTS SECTION ************************/
 .item p {
     margin: 1em;
     padding: 0;
@@ -200,51 +265,4 @@ cursor: pointer;
         width: 4em;
         height: 2.25em;
     }
-}
-
-/**************************** SEARCHBOX SECTION ***************************/
-#searchboxButton {
-    background-color: blue;
-    border-radius: 2em;
-    width: 100%;
-    height: 3em;
-    color: white;
-    border: black 3px solid;
-}
-
-fieldset {
-    border: none;
-}
-
-#search {
-    width: 100%;
-    background-color: rgb(224, 224, 224);
-    margin-bottom: 1em;
-    display: inline-block;
-}
-
-#searchBox {
-    width: 100%;
-    height: 2em;
-    font-size: 1em;
-    border: 2px solid #000000;
-    margin-bottom: 1em;
-    border-radius: 3em;
-}
-
-#resultAmountDropdown {
-    width: 4em;
-    height: 2.25em;
-    font-size: 1em;
-    border: 1px solid #000000;
-    margin-bottom: 1em;
-    border-radius: 3em;
-    text-align: center;
-}
-
-.searchError {
-    font-size: 1.2em;
-    color: #ff0000;
-    margin-bottom: 1em;
-    font-weight: bold;
 }
