@@ -1,19 +1,19 @@
 window.addEventListener("load", function () {
     //add event listener to the form
-    var form = document.querySelector("#search form");
+    const form = document.querySelector("#search form");
     form.addEventListener("submit", sendMessage);
     document.querySelector("#imageCheckbox").checked = true;
-    var searchError = document.querySelector(".searchError");
+    const searchError = document.querySelector(".searchError");
     searchError.classList.add("hide");
 });
 
 async function sendMessage(evt) {
     // Prevent the form from submitting
     evt.preventDefault();
-    var userInput = document.querySelector("#searchBox").value;
+    const userInput = document.querySelector("#searchBox").value;
     var fieldValid = true;
     var loadImages = true;
-    var pageSize = document.querySelector("#resultAmountDropdown").value;
+    const pageSize = document.querySelector("#resultAmountDropdown").value;
     let loading = document.querySelector("#loading");
     var searchError = document.querySelector(".searchError");
 
@@ -36,7 +36,7 @@ async function sendMessage(evt) {
 
     //if the field is valid, the loading spinner is shown and the results are fetched from the API
     if (fieldValid) {
-        var resultsContainer = document.querySelector("#results");
+        const resultsContainer = document.querySelector("#results");
         resultsContainer.classList.add("hide");
         loading.classList.add("showLoad");
 
@@ -59,7 +59,7 @@ async function sendMessage(evt) {
                 searchError.classList.add("hide");
 
                 //creates a variable to store the results from the API
-                var results = data.records;
+                const results = data.records;
 
                 //check if the results array is empty
                 if (results.length === 0) {
@@ -77,11 +77,11 @@ async function sendMessage(evt) {
                 // Iterate over the results and create HTML elements for each item
                 results.forEach((result) => {
                     // Create a container for each item
-                    var itemContainer = document.createElement("div");
+                    const itemContainer = document.createElement("div");
                     itemContainer.classList.add("item");
 
                     // Create a heading element
-                    var heading = document.createElement("h2");
+                    const heading = document.createElement("h2");
                     if (result._primaryTitle === "") {
                         heading.textContent = "No title available";
                     } else {
@@ -90,7 +90,7 @@ async function sendMessage(evt) {
                     itemContainer.appendChild(heading);
 
                     // Create a paragraph element for the date
-                    var date = document.createElement("p");
+                    const date = document.createElement("p");
                     if (result._primaryDate === "") {
                         date.textContent = "No date available";
                     } else {
@@ -99,18 +99,18 @@ async function sendMessage(evt) {
                     itemContainer.appendChild(date);
 
                     // Create a paragraph element for the description
-                    var descriptionTitle = document.createElement("h3");
+                    const descriptionTitle = document.createElement("h3");
                     descriptionTitle.textContent = "Description";
                     itemContainer.appendChild(descriptionTitle);
 
-                    var description = document.createElement("p");
+                    const description = document.createElement("p");
                     // Set description to the summary description and remove any HTML tags
-                    var fullDescription = result.summaryDescription.replaceAll(
+                    const fullDescription = result.summaryDescription.replaceAll(
                         /<[^>]*>?/gm,
                         ""
                     );
                     // If the description is longer than 300 characters, shorten it and add an ellipsis
-                    var shortDescription =
+                    const shortDescription =
                         fullDescription.substring(0, 100) + "...";
                     description.textContent = shortDescription;
 
@@ -121,14 +121,14 @@ async function sendMessage(evt) {
                     itemContainer.appendChild(description);
 
                     // Create a paragraph element for the click for more text
-                    var clickForMore = document.createElement("p");
+                    const clickForMore = document.createElement("p");
                     clickForMore.textContent = "Click for more";
                     clickForMore.classList.add("clickForMore");
                     itemContainer.appendChild(clickForMore);
 
-                    var image = `${result._images._iiif_image_base_url}/full/full/0/default.jpg`;
+                    const image = `${result._images._iiif_image_base_url}/full/full/0/default.jpg`;
                     //creates a new image element and check the src is loading or display a default image
-                    var img = new Image();
+                    const img = new Image();
                     img.src = image;
                     img.alt = "Image of " + result._primaryTitle;
                     img.onerror = function () {
@@ -142,24 +142,24 @@ async function sendMessage(evt) {
 
                     //function to display the full size image and description when the user clicks on the item using a modal/popup
                     itemContainer.addEventListener("click", function () {
-                        var modal = document.querySelector("#popup");
-                        var modelContent =
+                        const modal = document.querySelector("#popup");
+                        const modelContent =
                             document.querySelector("#modalContent");
                         modal.classList.add("block");
                         modelContent.classList.remove("close");
                         modelContent.classList.add("open");
-                        var title = document.createElement("h2");
+                        const title = document.createElement("h2");
                         title.textContent = result._primaryTitle;
                         modelContent.appendChild(title);
 
-                        var date = document.createElement("p");
+                        const date = document.createElement("p");
                         date.textContent = "Date: " + result._primaryDate;
                         if (result._primaryDate === "") {
                             date.textContent = "No date available";
                         }
                         modelContent.appendChild(date);
 
-                        var description = document.createElement("p");
+                        const description = document.createElement("p");
                         description.textContent = fullDescription;
                         if (result.summaryDescription === "") {
                             description.textContent =
@@ -167,7 +167,7 @@ async function sendMessage(evt) {
                         }
                         modelContent.appendChild(description);
 
-                        var img = document.createElement("img");
+                        const img = document.createElement("img");
                         img.classList.add("fullsizeImage");
                         img.src = `${result._images._iiif_image_base_url}/full/full/0/default.jpg`;
                         img.alt = "Image of " + result._primaryTitle;
