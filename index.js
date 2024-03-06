@@ -143,7 +143,8 @@ async function sendMessage(evt) {
                     //function to display the full size image and description when the user clicks on the item using a modal/popup
                     itemContainer.addEventListener("click", function () {
                         var modal = document.querySelector("#popup");
-                        var modelContent = document.querySelector("#modalContent");
+                        var modelContent =
+                            document.querySelector("#modalContent");
                         modal.classList.add("block");
                         modelContent.classList.remove("close");
                         modelContent.classList.add("open");
@@ -184,15 +185,13 @@ async function sendMessage(evt) {
                         span.onclick = function () {
                             modelContent.classList.remove("open");
                             modelContent.classList.add("close");
-                            setTimeout(function(){
+                            setTimeout(function () {
                                 modal.classList.remove("block");
                                 modelContent.removeChild(description);
                                 modelContent.removeChild(date);
                                 modelContent.removeChild(title);
                                 modelContent.removeChild(img);
                             }, 500);
-                         
-                           
                         };
                     });
 
