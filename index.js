@@ -63,7 +63,7 @@ async function sendMessage(evt) {
 
                 //check if the results array is empty
                 if (results.length === 0) {
-                    searchError.textContent = "No results found";
+                    searchError.textContent = "No results found for " + userInput;
                     searchError.classList.remove("hide");
                     loading.classList.remove("showLoad");
                     return;
@@ -205,8 +205,9 @@ async function sendMessage(evt) {
             })
             //catches any errors and displays an error message to the user and logs the error to the console
             .catch(function (error) {
-                searchError.textContent = "An error occurred" + error;
+                searchError.textContent = "technical issue please try again later";
                 searchError.classList.remove("hide");
+                loading.classList.remove("showLoad");
                 console.log(error);
             });
     }
