@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     background-color: #ffcd44;
-    margin: 0;
+    margin: 1em;
 }
 
 header {
@@ -9,8 +9,8 @@ header {
     padding: 20px;
     color: rgb(0, 0, 0); /* Text color */
     text-align: center; /* Center align the text */
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.1em;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1.2em;
 }
 
 
