@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="A site which uses the Victoria and Albert Museum search API"
-    />
+    <meta name="description" content="A site which uses the Victoria and Albert Museum search API" />
     <meta name="viewport" content="width=device-width" />
     <link href="index.css" rel="stylesheet" type="text/css" />
     <script src="index.js"></script>
     <title>V&A Search Tool</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <h1>V&A Search Tool</h1>
-      <p>Search the Victoria and Albert Museum's collection</p>
+        <h1>V&A Search Tool</h1>
+        <p>Search the Victoria and Albert Museum's collection</p>
     </header>
     <div id="search">
-      <form>
-        <fieldset>
-          <label for="searchBox">Enter Search Term:</label>
-          <span class="searchError"></span>
-          <input id="searchBox" type="text" />
-          <span class="searchError"></span>
-          <label for="resultAmountDropdown">Results Per Page:</label>
-          <select id="resultAmountDropdown">
-            <option value="15">15</option>
-            <option value="30">30</option>
-            <option value="45">45</option>
-            <option value="100">Max</option>
-          </select>
-          <div id="filters">
-            <b>Results Must Have:</b>
-            <label for="imageCheckbox">Image</label>
-            <input id="imageCheckbox" type="checkbox" />
-          </div>
-          <input id="searchboxButton" type="submit" value="Search" />
-        </fieldset>
-      </form>
+        <form>
+            <fieldset>
+                <label for="searchBox">Enter Search Term:</label>
+                <span class="searchError"></span>
+                <input id="searchBox" type="text" />
+                <span class="searchError"></span>
+                <label for="resultAmountDropdown">Results Per Page:</label>
+                <select id="resultAmountDropdown">
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                    <option value="100">Max</option>
+                </select>
+                <div id="filters">
+                    <b>Results Must Have:</b>
+                    <label for="imageCheckbox">Image</label>
+                    <input id="imageCheckbox" type="checkbox" />
+                </div>
+                <input id="searchboxButton" type="submit" value="Search" />
+            </fieldset>
+        </form>
     </div>
 
     <!-- div which will be used to display the loading image -->
     <div id="loading">
-      <img src="loading.gif" alt="loading" />
+        <img src="loading.gif" alt="loading" />
     </div>
 
     <!-- div which will be used to display the results -->
@@ -51,7 +49,8 @@
 
     <!-- div for the Modal/Popup -->
     <div id="popup" class="modal">
-      <div id="modalContent"></div>
+        <div id="modalContent"></div>
     </div>
-  </body>
+</body>
+
 </html>
