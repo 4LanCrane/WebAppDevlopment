@@ -178,8 +178,8 @@ async function sendMessage(evt) {
             if (result._primaryTitle === "") {
               img.alt =
                 "No image title, Please see description for more details";
-            }else{
-            img.alt = "large image of " + result._primaryTitle;
+            } else {
+              img.alt = "large image of " + result._primaryTitle;
             }
 
             img.onerror = function () {
