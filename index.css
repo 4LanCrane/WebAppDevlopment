@@ -1,268 +1,268 @@
 body {
-    font-family: sans-serif;
-    background-color: #ffcd44;
-    margin: 1em;
+  font-family: sans-serif;
+  background-color: #ffcd44;
+  margin: 1em;
 }
 
 header {
-    background-color: #ffcd44;
-    padding: 20px;
-    color: rgb(0, 0, 0); /* Text color */
-    text-align: center; /* Center align the text */
-    font-family: "Courier New", Courier, monospace;
-    font-size: 1.2em;
+  background-color: #ffcd44;
+  padding: 20px;
+  color: rgb(0, 0, 0); /* Text color */
+  text-align: center; /* Center align the text */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2em;
 }
 
 #loading {
-    display: none;
-    text-align: center;
-    margin-top: 1em;
+  display: none;
+  text-align: center;
+  margin-top: 1em;
 }
 
 .hide {
-    display: none !important;
+  display: none !important;
 }
 
 .showLoad {
-    display: block !important;
+  display: block !important;
 }
 
 /************************* POPUP WINDOW SECTION **************************/
 
 #popup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: black;
-    background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .block {
-    display: block !important;
+  display: block !important;
 }
 
 #modalContent {
-    background-color: #fefefe;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border: 1px solid #ff9900;
-    height: 70%;
-    width: 70%;
-    text-align: center;
-    overflow: hidden;
-    overflow: auto;
-    border-radius: 3em;
+  background-color: #fefefe;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ff9900;
+  height: 70%;
+  width: 70%;
+  text-align: center;
+  overflow: hidden;
+  overflow: auto;
+  border-radius: 3em;
 }
 
 #modalContent.open {
-    animation: open 0.5s;
+  animation: open 0.5s;
 }
 
 #modalContent.close {
-    animation: close 0.5s;
+  animation: close 0.5s;
 }
 
 @keyframes open {
-    from {
-        transform: translate(-50%, -50%) scale(0);
-    }
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
 
-    to {
-        transform: translate(-50%, -50%) scale(1);
-    }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 @keyframes close {
-    from {
-        transform: translate(-50%, -50%) scale(1);
-    }
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
 
-    to {
-        transform: translate(-50%, -50%) scale(0);
-    }
+  to {
+    transform: translate(-50%, -50%) scale(0);
+  }
 }
 
 /* The Close Button */
 .closeButton {
-    display: block;
-    color: #ffffff;
-    float: right;
-    font-size: 2em;
-    font-weight: bold;
-    background-color: #ff0000;
+  display: block;
+  color: #ffffff;
+  float: right;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: #ff0000;
 }
 
 .closeButton:hover,
 .closeButton:focus {
-    color: black;
-    background-color: #f96767;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  background-color: #f96767;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /**************************** SEARCHBOX SECTION ***************************/
 #searchboxButton {
-    background-color: blue;
-    border-radius: 2em;
-    width: 100%;
-    height: 3em;
-    color: white;
-    border: black 3px solid;
+  background-color: blue;
+  border-radius: 2em;
+  width: 100%;
+  height: 3em;
+  color: white;
+  border: black 3px solid;
 }
 
 fieldset {
-    border: none;
+  border: none;
 }
 
 #search {
-    width: 100%;
-    background-color: rgb(224, 224, 224);
-    margin-bottom: 1em;
-    display: block;
-    border-radius: 1em;
-    text-align: center;
+  width: 100%;
+  background-color: rgb(224, 224, 224);
+  margin-bottom: 1em;
+  display: block;
+  border-radius: 1em;
+  text-align: center;
 }
 
 #searchBox {
-    display: block;
-    width: 90%;
-    margin:auto;
-    height: 2em;
-    font-size: 1em;
-    border: 2px solid #000000;
-    margin-bottom: 1em;
-    border-radius: 3em;
+  display: block;
+  width: 90%;
+  margin: auto;
+  height: 2em;
+  font-size: 1em;
+  border: 2px solid #000000;
+  margin-bottom: 1em;
+  border-radius: 3em;
 }
 
 #resultAmountDropdown {
-    width: 4em;
-    height: 2.25em;
-    font-size: 1em;
-    border: 1px solid #000000;
-    margin-bottom: 1em;
-    border-radius: 3em;
-    text-align: center;
+  width: 4em;
+  height: 2.25em;
+  font-size: 1em;
+  border: 1px solid #000000;
+  margin-bottom: 1em;
+  border-radius: 3em;
+  text-align: center;
 }
 
 .searchError {
-    font-size: 1.1em;
-    color: #ff0000;
-    margin-bottom: 1em;
-    font-weight: bold;
+  font-size: 1.1em;
+  color: #ff0000;
+  margin-bottom: 1em;
+  font-weight: bold;
 }
 
 /************************ SEARCH RESULTS SECTION ************************/
 .item p {
-    margin: 1em;
-    padding: 0;
+  margin: 1em;
+  padding: 0;
 }
 
 .item h2 {
-    white-space: nowrap;
-    width: 90%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 1cap 0;
-    margin: 1em;
+  white-space: nowrap;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1cap 0;
+  margin: 1em;
 }
 
 .item img {
-    max-height: 7em;
-    max-width: 17em;
+  max-height: 7em;
+  max-width: 17em;
 }
 
 .itemImage {
-    display: inline-block;
+  display: inline-block;
 }
 
 .fullsizeImage {
-    max-width: 70%;
-    max-height: 70%;
+  max-width: 70%;
+  max-height: 70%;
 }
 
 .clickForMore {
-    color: blue;
-    text-decoration: underline;
+  color: blue;
+  text-decoration: underline;
 }
 
 /*when viewed on a desktop/default*/
 #results {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .item {
-    display: block;
-    min-height: 30em;
-    width: 23%;
-    border: 1px solid #000000;
-    text-align: center;
-    margin: auto;
-    margin-bottom: 1em;
-    background-color: white;
-    border-radius: 3em;
+  display: block;
+  min-height: 30em;
+  width: 23%;
+  border: 1px solid #000000;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 1em;
+  background-color: white;
+  border-radius: 3em;
 }
 
 /*changes mouse to pointer when over result*/
 .item:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /*when viewed on a tablet */
 @media screen and (max-width: 1300px) {
-    .item {
-        width: 30%;
-    }
+  .item {
+    width: 30%;
+  }
 }
 
 /*when viewed on a small tablet */
 @media screen and (max-width: 870px) {
-    .item {
-        width: 49%;
-    }
+  .item {
+    width: 49%;
+  }
 
-    #imageCheckbox {
-        height: 2.25em;
-        width: 2.25em;
-    }
+  #imageCheckbox {
+    height: 2.25em;
+    width: 2.25em;
+  }
 
-    #resultAmountDropdown {
-        width: 4em;
-        height: 2.25em;
-    }
+  #resultAmountDropdown {
+    width: 4em;
+    height: 2.25em;
+  }
 }
 
 /*when viewed on a mobile*/
 @media screen and (max-width: 740px) {
-    #results {
-        display: block;
-    }
+  #results {
+    display: block;
+  }
 
-    .fullsizeImage {
-        max-width: 100%;
-        max-height: 100%;
-    }
+  .fullsizeImage {
+    max-width: 100%;
+    max-height: 100%;
+  }
 
-    .item {
-        width: 95%;
-        display: block;
-    }
+  .item {
+    width: 95%;
+    display: block;
+  }
 
-    #imageCheckbox {
-        height: 2.25em;
-        width: 2.25em;
-    }
+  #imageCheckbox {
+    height: 2.25em;
+    width: 2.25em;
+  }
 
-    #resultAmountDropdown {
-        width: 4em;
-        height: 2.25em;
-    }
+  #resultAmountDropdown {
+    width: 4em;
+    height: 2.25em;
+  }
 }
