@@ -181,7 +181,7 @@ async function sendMessage(evt) {
                         img.onload = function () {
                             modalContent.appendChild(img);
                         };
-                       
+
                         //when the user clicks on the x button, the modal is closed
                         closeButton.onclick = function () {
                             modalContent.classList.remove("open");
@@ -189,7 +189,9 @@ async function sendMessage(evt) {
                             setTimeout(function () {
                                 modal.classList.remove("block");
                                 while (modalContent.firstChild) {
-                                    modalContent.removeChild(modalContent.firstChild);
+                                    modalContent.removeChild(
+                                        modalContent.firstChild
+                                    );
                                 }
                             }, 500);
                         };
