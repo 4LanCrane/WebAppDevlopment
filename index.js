@@ -63,7 +63,8 @@ async function sendMessage(evt) {
 
                 //check if the results array is empty
                 if (results.length === 0) {
-                    searchError.textContent = "No results found for " + userInput;
+                    searchError.textContent =
+                        "No results found for " + userInput;
                     searchError.classList.remove("hide");
                     loading.classList.remove("showLoad");
                     return;
@@ -105,10 +106,8 @@ async function sendMessage(evt) {
 
                     const description = document.createElement("p");
                     // Set description to the summary description and remove any HTML tags
-                    const fullDescription = result.summaryDescription.replaceAll(
-                        /<[^>]*>?/gm,
-                        ""
-                    );
+                    const fullDescription =
+                        result.summaryDescription.replaceAll(/<[^>]*>?/gm, "");
                     // If the description is longer than 300 characters, shorten it and add an ellipsis
                     const shortDescription =
                         fullDescription.substring(0, 100) + "...";
@@ -205,7 +204,8 @@ async function sendMessage(evt) {
             })
             //catches any errors and displays an error message to the user and logs the error to the console
             .catch(function (error) {
-                searchError.textContent = "technical issue please try again later";
+                searchError.textContent =
+                    "technical issue please try again later";
                 searchError.classList.remove("hide");
                 loading.classList.remove("showLoad");
                 console.log(error);
