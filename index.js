@@ -142,21 +142,25 @@ async function sendMessage(evt) {
                     //function to display the full size image and description when the user clicks on the item using a modal/popup
                     itemContainer.addEventListener("click", function () {
                         const modal = document.querySelector("#popup");
-                        const modelContent =
+                        const modalContent =
                             document.querySelector("#modalContent");
+                        const closeButton = document.createElement("span");
+                        closeButton.textContent = "X";
+                        closeButton.classList.add("closeButton");
+                        modalContent.appendChild(closeButton);
                         modal.classList.add("block");
-                        modelContent.classList.remove("close");
-                        modelContent.classList.add("open");
+                        modalContent.classList.remove("close");
+                        modalContent.classList.add("open");
                         const title = document.createElement("h2");
                         title.textContent = result._primaryTitle;
-                        modelContent.appendChild(title);
+                        modalContent.appendChild(title);
 
                         const date = document.createElement("p");
                         date.textContent = "Date: " + result._primaryDate;
                         if (result._primaryDate === "") {
                             date.textContent = "No date available";
                         }
-                        modelContent.appendChild(date);
+                        modalContent.appendChild(date);
 
                         const description = document.createElement("p");
                         description.textContent = fullDescription;
@@ -164,7 +168,7 @@ async function sendMessage(evt) {
                             description.textContent =
                                 "No description available";
                         }
-                        modelContent.appendChild(description);
+                        modalContent.appendChild(description);
 
                         const img = document.createElement("img");
                         img.classList.add("fullsizeImage");
@@ -172,24 +176,21 @@ async function sendMessage(evt) {
                         img.alt = "Image of " + result._primaryTitle;
                         img.onerror = function () {
                             img.src = "NOIMAGE.png";
-                            modelContent.appendChild(img);
+                            modalContent.appendChild(img);
                         };
                         img.onload = function () {
-                            modelContent.appendChild(img);
+                            modalContent.appendChild(img);
                         };
-
-                        // Gets the x button that closes the modal
-                        var span = document.querySelector(".closeButton");
+                       
                         //when the user clicks on the x button, the modal is closed
-                        span.onclick = function () {
-                            modelContent.classList.remove("open");
-                            modelContent.classList.add("close");
+                        closeButton.onclick = function () {
+                            modalContent.classList.remove("open");
+                            modalContent.classList.add("close");
                             setTimeout(function () {
                                 modal.classList.remove("block");
-                                modelContent.removeChild(description);
-                                modelContent.removeChild(date);
-                                modelContent.removeChild(title);
-                                modelContent.removeChild(img);
+                                while (modalContent.firstChild) {
+                                    modalContent.removeChild(modalContent.firstChild);
+                                }
                             }, 500);
                         };
                     });
